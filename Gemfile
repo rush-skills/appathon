@@ -18,7 +18,7 @@ gem 'upmin-admin'
 gem 'tzinfo-data'
 gem 'beautiful_scaffold', '~>0.3'
 gem 'carrierwave'
-gem 'omniauth-google-ouath2'
+gem 'omniauth-google-oauth2'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

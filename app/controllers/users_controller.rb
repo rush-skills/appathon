@@ -24,6 +24,15 @@ class UsersController < ApplicationController
     end
   end
 
+   def update1
+    @user = User.find(params[:id])
+    if @user.update_attributes(secure_params2)
+      redirect_to users_path, :notice => "User updated."
+    else
+      redirect_to users_path, :alert => "Unable to update user."
+    end
+  end
+
   def destroy
     user = User.find(params[:id])
     user.destroy
@@ -40,6 +49,10 @@ class UsersController < ApplicationController
 
   def secure_params
     params.require(:user).permit(:role)
+  end
+
+  def secure_params2
+    params.require(:user).permit(:name, :email, :phone)
   end
 
 end
