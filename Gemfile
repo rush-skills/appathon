@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.0.0'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -15,6 +15,8 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'tzinfo-data'
+gem 'beautiful_scaffold', '~>0.3'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
