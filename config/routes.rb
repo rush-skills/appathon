@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :places
   get '/home', to: 'places#home'
+  get '/home/:type', to: 'places#home'
   mount Upmin::Engine => '/admin'
   root to: 'visitors#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

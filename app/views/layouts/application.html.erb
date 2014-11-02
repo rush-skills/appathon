@@ -147,7 +147,7 @@ list-style-type: none;
                                     <h4 class="footer-title">Place Categories</h4>
                                     <ul>
                                         <% Place::CATEGORIES.keys.each do |x| %>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i><%=x%></a></li>
+                                        <li><a href="/home/<%=x.downcase%>"><i class="fa fa-angle-right"></i><%=x.capitalize%></a></li>
                                         <% end %>
                                     </ul>
                                 </div>

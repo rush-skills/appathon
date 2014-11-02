@@ -18,7 +18,14 @@ class PlacesController < ApplicationController
   def edit
   end
   def home
-    @places = Place.all
+    @places = Place.paginate(page: params[:page], per_page: 12).order('created_at DESC')
+    if params[:type]
+      @places = Place.where(category: params[:type].upcase).paginate(page: params[:page], per_page: 12).order('created_at DESC')
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   def create
     @place = Place.new(place_params)

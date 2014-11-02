@@ -1,19 +1,17 @@
-<p>
-  <strong>By: <strong>
-  <%= link_to review.user.name, user_path(review.user) %>
-</p>
+<div class="view-comments">
+    <div class="comments">
+        <div class="comment-body">
+            <h6><%= link_to review.user.name, user_path(review.user) %></h6>
+            <span class="date"><%= review.date %></span>
+            <a href="#" class="hidden-xs"><%= review.stars %> Stars</a>
+           <%= review.description.html_safe %>
+        </div>
+        <div class="author-thumb">
+            <img src="<%=review.image if review.image %>" alt="/default.jpg" style="max-width: 100%">
+        </div>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= review.description %>
-</p>
-
-<p>
-  <strong>Stars:</strong>
-  <%= review.stars %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(review.image) %>
-</p>
+</div>
+<div class="divide-line">
+                                                <img src="/assets/div-line.png" alt="" />
+                                                </div>

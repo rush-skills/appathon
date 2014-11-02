@@ -1,26 +1,33 @@
 <% @review = Review.new %>
-<%= simple_form_for(@review) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@review) do |f| %>
+      
+      <div class="row">
+      <div class="email col-md-4">
+          <%= f.number_field :stars, :placeholder => "Rating (1-5)"%>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.label :add_a_review %>
-
-    <%= f.input :place_id,as: :hidden,input_html: {value: place.id} %>
-
-    <%= f.input :description%>
-
-    <%= f.input :stars %>
-
-    <p>
-      <label>Upload a photo</label>
-      <%= image_tag(@review.image_url) if @review.image? %>
-      <%= f.file_field :image %>
-      <%= f.text_field :remote_image_url %>
-    </p>
-
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+      </div>                              
+    <div class="row">
+      <%= f.hidden_field :place_id,value: place.id %>
+      <div class="email col-md-12">
+          <%= f.text_area :description, :placeholder => "Detailed review"%>
+      </div>
+    </div>
+    <div class="row">        
+        <div class="email col-md-12">
+          <%= f.label "Attach an image"%>
+      </div>
+      <div class="subject col-md-6"  style="display:inline">
+        <%= f.file_field :image , :placeholder => "Attach an image"%>
+        
+        
+      </div>
+      <div class="subject col-md-6"  style="display:inline">
+        <%= f.text_field :remote_image_url, :placeholder => "Upload via URL" %>
+        </div>
+      </div>
+      <div class="send">
+          <%= f.button :submit %>
+      </div>
 <% end %>
+                                                   
