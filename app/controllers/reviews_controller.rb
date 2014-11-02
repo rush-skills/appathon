@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
+    @review.save!
     flash[:notice] = 'Review was successfully created.' if @review.save
     redirect_to @review.place
   end
