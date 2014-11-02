@@ -1,29 +1,47 @@
-<div class="col-md-8 col-md-offset-2">
+<div id="heading">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-content">
+                                <h2>Suggest a new place</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ <div id="product-post">
+                <div class="container">
+                    <div class="row">
+                      <div class="col-md-8 col-md-offset-2">
 <%= simple_form_for(@place) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-
+    <br>
+    <br>
     <%= f.input :title %>
 
-    <%= f.input :description %>
+    <%= f.input :description, as: :text %>
 
 
-    <%= f.input :address %>
+    <%= f.input :address, as: :text %>
 
-    <p>
+    
       <label>Upload a photo</label>
       <%= image_tag(@place.image_url) if @place.image? %>
       <%= f.file_field :image %>
       <%= f.text_field :remote_image_url %>
-    </p>
-
+    <br><br>
+      <%= f.label "Select a category" %>
     <%= collection_select(:place, :category, Place::CATEGORIES.keys, :to_s, :to_s) %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit , "Suggest"%>
   </div>
 <% end %>
-</div>
+ </div>
+                    </div>
+                </div>
+            </div>
