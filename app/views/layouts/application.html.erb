@@ -1,20 +1,192 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Appathon" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Appathon" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <title><%= content_for?(:title) ? yield(:title) : "Mapstagram" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mapstagram" %>">
+
+<link rel="shortcut icon" href="/favicon.jpg">
+<link rel="apple-touch-icon-precomposed" href="/favicon.jpg">
+    <link rel="stylesheet" href="/assets/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/templatemo_style.css">
+        <link rel="stylesheet" href="/assets/templatemo_misc.css">
+        <link rel="stylesheet" href="/assets/flexslider.css">
+        <link rel="stylesheet" href="/assets/testimonails-slider.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <style>
+    ul, li
+{
+list-style-type: none;
+}
+.sliderbox{
+
+    width: 60%;
+    margin-left: 20%;
+    padding-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.75);
+    -moz-border-radius: 15px;  border-radius: 15px;
+
+}
+</style>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <header><div id="top-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="home-account">
+                                    <a href="/">Home</a>
+                                    <% if current_user %>
+                                    <a href="/places/new">Suggest a place</a>
+                                    <%end%> 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cart-info">
+                                  <% if current_user %>
+                                    
+                                    <li class="dropdown">
+          <!-- <i class="fa fa-user"></i> --><a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=  current_user.name %>
+ <span class="caret"></span></a>
+          <ul class="dropdown-menu pull-right" role="menu" style="text-align: left">
+            <li><%= link_to 'My Prfofile', current_user %></li>
+            <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Admin', '/admin' %></li>
+              <li><%= link_to 'Users', users_path %></li>
+            <% end %>
+            <!-- <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li> -->
+          </ul>
+        </li>
+                                    <%else%>
+                                    <%= link_to "Sign in", user_omniauth_authorize_path(:google_oauth2) %>
+                                  <%end%> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="main-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/"><img src="/assets/logo.jpg" style="width: 250px" title="Mapstagram" alt="Mapstagram Website" ></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="main-menu">
+                                    <ul>
+                                        <%= render 'layouts/navigation_links' %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="search-box">  
+                                    <form name="search_form" method="get" class="search_form">
+                                        <input id="search" type="text" />
+                                        <input type="submit" id="search-button" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <hr style="margin-top: 0px">
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+    <footer>
+                <div class="container">
+                    <div class="top-footer">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="subscribe-form">
+                                    <span>Get in touch with us</span>
+                                    <form method="get" class="subscribeForm">
+                                        <input id="subscribe" type="text" />
+                                        <input type="submit" id="submitButton" />
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="social-bottom">
+                                    <span>Follow us:</span>
+                                    <ul>
+                                        <li><a href="#" class="fa fa-facebook"></a></li>
+                                        <li><a href="#" class="fa fa-twitter"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-footer">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="about">
+                                    <h4 class="footer-title">About Mapstagram</h4>
+                                    <p>Mapstagram is a network of all unknown and hidden local places. It is a initiave to explore and suggest cool places, so that there is more options and varities in your life.<br><br>Also, it helps them get more attention, and if they do, they deserve it.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="shop-list">
+                                    <h4 class="footer-title">Place Categories</h4>
+                                    <ul>
+                                        <% Place::CATEGORIES.keys.each do |x| %>
+                                        <li><a href="#"><i class="fa fa-angle-right"></i><%=x%></a></li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="recent-posts">
+                                    <h4 class="footer-title">Recent places</h4>
+                                    <% Place.last(2).reverse.each do |p| %>
+                                    <div class="recent-post">
+                                        <div class="recent-post-thumb">
+                                            <%= link_to p do%><img src="<%=p.image%>" alt="" style="width: 70px; height: 70px"><%end%>
+                                        </div>
+                                        <div class="recent-post-info">
+                                            <h6><%= link_to p.title, p %></h6>
+                                            <span><%= p.date %></span>
+                                        </div>
+                                    </div>
+                                    <%end%>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="more-info">
+                                    <h4 class="footer-title">More info</h4>
+                                    <p>For more information, contact us at.</p>
+                                    <ul>
+                                        <li><i class="fa fa-phone"></i>+919717193630</li>
+                                        <li><i class="fa fa-globe"></i>IIIT-Delhi, Okhla Phase 3, New Delhi.</li>
+                                        <li><i class="fa fa-envelope"></i><a href="#">ankur13019@iiitd.ac.in</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-footer">
+                        <p>Copyright © 2014 <a href="/">Mapstagram</a> </p>
+                    </div>
+                    
+                </div>
+            </footer>
+
   </body>
 </html>

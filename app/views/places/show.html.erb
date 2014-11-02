@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @place.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.description %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= link_to @place.user.name, user_path(@place.user) %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @place.address %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @place.image %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @place.category %>
+</p>
+<%= render 'reviews/form', place: @place %>
+<% @place.reviews.each do |x| %>
+<%= render 'reviews/show', review: x %>
+<% end %>
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>

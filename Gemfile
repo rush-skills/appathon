@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
@@ -16,9 +16,9 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'upmin-admin'
 gem 'tzinfo-data'
-gem 'beautiful_scaffold', '~>0.3'
 gem 'carrierwave'
 gem 'omniauth-google-oauth2'
+gem 'country_select'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

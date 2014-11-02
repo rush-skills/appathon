@@ -1,0 +1,19 @@
+<p>
+  <strong>By: <strong>
+  <%= link_to review.user.name, user_path(review.user) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= review.description %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= review.stars %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(review.image) %>
+</p>

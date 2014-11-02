@@ -1,0 +1,27 @@
+<%= simple_form_for(@place) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :title %>
+
+    <%= f.input :description %>
+
+
+    <%= f.input :address %>
+
+    <p>
+      <label>Upload a photo</label>
+      <%= image_tag(@place.image_url) if @place.image? %>
+      <%= f.file_field :image %>
+      <%= f.text_field :remote_image_url %>
+    </p>
+
+    <%= collection_select(:place, :category, Place::CATEGORIES.keys, :to_s, :to_s) %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

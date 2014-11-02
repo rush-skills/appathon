@@ -1,2 +1,137 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+
+            <div id="slider">
+                <div class="flexslider">
+                  <ul class="slides">
+                    <li>
+                        <div class="slider-caption sliderbox">
+                            <h1 style="text-transform: capitalize">Discover Local Places</h1>
+                            <p>Cause you would die to know them<br><br>All the hidden, unknown and unexplored places in one place<br>From a awesome accessory shop to a place to sit and relax, or food to savour on<br> You can find it all here</p>
+                            <a href="single-post.html">SHOW ME!</a>
+                        </div>
+                      <img src="/assets/background.jpg" alt="" />
+                    </li>
+                    
+                  </ul>
+                </div>
+            </div>
+
+
+            <div id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Welcome to Mapstagram</h2>
+                                <img src="/assets/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                <h4>Find places</h4>
+                                <p>Browse from all different types of places and get to know the hidden and the unknown.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <h4>Reviews</h4>
+                                <p>Read and write reviews for the places, so that its easier to make decisions. Speak your mind.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-bell"></i>
+                                </div>
+                                <h4>Follow people and places</h4>
+                                <p>See what new places people are visiting or adding, or know the updates to the places you want to keep track of.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <h4>Visit it</h4>
+                                <p>Found a new place? Give it a visit and check in to mark your presence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="latest-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Discover</h2>
+                                <img src="/assets/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<% Place::CATEGORIES.keys.each do |x| %>
+                                         <div class="col-md-4 col-sm-6">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="<%=Place::URL[x]%>" alt="" style="height: 250px"/>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="single-post.html"><%=x%></a></h4>
+                                    </div>
+                                    <div class="content-hide">
+                                        <p><%=Place::CATEGORIES[x]%></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>
+                       
+                
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="testimonails">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>What Customers Say</h2>
+                                <img src="/assets/under-heading.png" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="testimonails-slider">
+                              <ul class="slides">
+                                <li>
+                                    <div class="testimonails-content">
+                                        <p>An awesome app to find places which would have otherwise been unheard of. Great work!</p>
+                                        <h6>Anonymous - <a href="#">CEO</a></h6>
+                                    </div>
+                                </li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+		

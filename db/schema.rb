@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101174542) do
+ActiveRecord::Schema.define(version: 20141102030626) do
+
+  create_table "places", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.string   "address"
+    t.string   "image"
+    t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "places", ["user_id"], name: "index_places_on_user_id"
+
+  create_table "reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.string   "description"
+    t.string   "stars"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["place_id"], name: "index_reviews_on_place_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
