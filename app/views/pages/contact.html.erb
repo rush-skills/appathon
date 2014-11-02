@@ -1,0 +1,104 @@
+<div id="heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-content">
+                    <h2>Contact Us</h2>
+                    <span>Home / <a href="contact-us.html">Contact Us</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="product-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-section">
+                    <h2>Feel free to send a message</h2>
+                    <img src="/assets/under-heading.png" alt="" >
+                </div>
+            </div>
+        </div>
+        <div id="contact-us">
+            <div class="container">
+                <div class="row">
+                    <div class="product-item col-md-12">
+                        <div class="row">
+                            <div class="col-md-8">  
+                                <div class="message-form">
+                                    <form action="#" method="post" class="send-message">
+                                        <div class="row">
+                                        <div class="name col-md-4">
+                                            <input type="text" name="name" id="name" placeholder="Name" />
+                                        </div>
+                                        <div class="email col-md-4">
+                                            <input type="text" name="email" id="email" placeholder="Email" />
+                                        </div>
+                                        <div class="subject col-md-4">
+                                            <input type="text" name="subject" id="subject" placeholder="Subject" />
+                                        </div>
+                                        </div>
+                                        <div class="row">        
+                                            <div class="text col-md-12">
+                                                <textarea name="text" placeholder="Message"></textarea>
+                                            </div>   
+                                        </div>                              
+                                        <div class="send">
+                                            <button type="submit">Send</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <p>For more information, contact us at.</p>
+                                    <ul>
+                                        <li><i class="fa fa-phone"></i>+919717193630</li>
+                                        <li><i class="fa fa-globe"></i>IIIT-Delhi, Okhla Phase 3, New Delhi.</li>
+                                        <li><i class="fa fa-envelope"></i><a href="#">ankur13019@iiitd.ac.in</a></li>
+                                    </ul>
+                                </div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading-section">
+                    <h2>Find Us On Map</h2>
+                    <img src="/assets/under-heading.png" alt="" >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+ <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDaewk0hcgMCtAQkVfeBnCtiUTbYRXEJkw">
+        </script>
+        <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: 28.5463767, lng: 77.2717456},
+          zoom: 17
+        };
+        var myLatlng = new google.maps.LatLng(28.5463767,77.2717456);
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title:"IIIT-Delhi"
+        });
+      }
+      google.maps.event.addDomListener(window, 'page:load', initialize);
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+            <div class="col-md-12">
+                <div id="map-canvas" style="height:420px;"></div>
+            </div>
+        </div>     
+    </div>
+</div>

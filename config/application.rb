@@ -20,5 +20,11 @@ module Appathon
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.enable = true
+    Rails.application.config.assets.precompile += %w( *.css)
+    Rails.application.config.assets.precompile += %w( *.css.sass )
+    Rails.application.config.assets.precompile += %w( *.css.scss )
+    Rails.application.config.assets.precompile += %w( *.js )
+    Rails.application.config.assets.precompile += %w( *.js.coffee )
+    Rails.application.config.assets.precompile += %w( *.js.coffee.erb )
   end
 end
