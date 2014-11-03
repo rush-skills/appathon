@@ -17,7 +17,7 @@ puts 'CREATED ADMIN USER: ' << user.email
 place = Place.all
 500.times { |i| 
 	begin
-		Review.create!(user_id: 1, place_id: place.sample,description: BetterLorem.c(200, false, false),stars: (1+rand(5)), remote_image_url: "http://lorempixel.com/1280/720/")
+		Review.create!(user_id: 1, place_id: place.sample.id,description: BetterLorem.c(200, false, false),stars: (1+rand(5)), remote_image_url: "http://lorempixel.com/1280/720/")
 	rescue
 		retry
 	end
