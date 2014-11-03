@@ -7,4 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
-100.times { |i| Place.create!(title: "Place #{i}", description: BetterLorem.c(200, false, false), address: BetterLorem.c(100, false, false), remote_image_url: "http://lorempixel.com/1920/1080/", category: Place::CATEGORIES.keys.sample, user_id: 1)}
+100.times { |i| 
+	begin
+		Place.create!(title: "Place #{i}", description: BetterLorem.c(200, false, false), address: BetterLorem.c(100, false, false), remote_image_url: "http://lorempixel.com/1280/720/", category: Place::CATEGORIES.keys.sample, user_id: 1)
+	rescue
+		retry
+	end
+}
+place = Place.all
+500.times { |i| 
+	begin
+		Review.create!(user_id: 1, place_id: place.sample,description: BetterLorem.c(200, false, false),stars: (1+rand(5)), remote_image_url: "http://lorempixel.com/1280/720/")
+	rescue
+		retry
+	end
+}
